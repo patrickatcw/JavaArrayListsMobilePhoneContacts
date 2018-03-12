@@ -50,6 +50,23 @@ public class MobilePhone {
 
     }
 
+    //step 17 method for removing contact
+    public boolean removeContact(Contact contact) {
+        int foundPosition = findContact(contact);  //notice finding position
+        if (foundPosition < 0) {
+            System.out.println(contact.getName() + ", was not found.");
+            return false;
+
+        }
+
+        this.myContacts.remove(foundPosition);
+        System.out.println(contact.getName() + ", was deleted.");
+        return true; //we were successful and we were able to delete it
+
+        //now for step 18 go to main
+
+    }
+
     //step 12 method to find contact
     private int findContact(Contact contact) {
 
