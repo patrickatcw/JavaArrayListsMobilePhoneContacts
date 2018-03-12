@@ -73,4 +73,14 @@ public class MobilePhone {
 
     }
 
+    //step 16 method for query
+    public String queryContact(Contact contact) {
+        if (findContact(contact) >= 0) {
+            return contact.getName();
+        }
+        return null;
+
+    }
+
+
 }
