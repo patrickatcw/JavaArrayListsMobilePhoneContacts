@@ -15,5 +15,13 @@ remove contact and search / find contact
 - mobilephone should do everything with contacts objects only
  */
 
+//step 18
+import java.util.Scanner;
+
 public class Main {
+
+    //step 18 implement scanner
+    private static Scanner scanner = new Scanner(System.in);
+
+
 }
