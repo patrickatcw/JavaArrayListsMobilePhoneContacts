@@ -32,6 +32,24 @@ public class MobilePhone {
 
     }
 
+    //step 15 method to update contact
+    public boolean updateContact(Contact oldContact, Contact newContact) {
+        int foundPosition = findContact(oldContact);
+        if (foundPosition < 0) {
+            System.out.println(oldContact.getName() + ", was not found.");
+            return false;
+        } else if (findContact(newContact.getName())!=-1) {
+            System.out.println("Contact with name " + newContact.getName() +
+                    " already exists. Update was not successful.");
+        }
+
+        this.myContacts.set(foundPosition, newContact);
+        System.out.println(oldContact.getName() + ", was replaced with " +
+                newContact.getName());
+        return true;
+
+    }
+
     //step 12 method to find contact
     private int findContact(Contact contact) {
 
