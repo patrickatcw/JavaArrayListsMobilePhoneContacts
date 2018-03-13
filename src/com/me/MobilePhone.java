@@ -99,5 +99,29 @@ public class MobilePhone {
 
     }
 
+    //step 27 from when working on step 26 in main
+    public Contact queryContact(String name) {
+        int position = findContact(name);    //getting the position number based on the name
+        if(position >= 0) {
+            return this.myContacts.get(position);
+
+        }
+
+        return null;
+
+    }
+
+
+    //step 24 method for printContacts in case 1 in switch
+    public void printContacts() {
+        System.out.println("Contact List");
+        for (int i = 0; i < this.myContacts.size(); i++) {
+            System.out.println((i + 1) + "." +
+                    this.myContacts.get(i).getName() + " -> " +   //notice getters
+                    this.myContacts.get(i).getPhoneNumber());
+
+        }
+    }
+
 
 }

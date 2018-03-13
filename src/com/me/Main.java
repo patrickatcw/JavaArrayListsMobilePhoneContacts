@@ -67,10 +67,102 @@ public class Main {
 
             }
 
+        }
 
+    }
 
+    //step 25
+    private static void addNewContact(){
+        System.out.println("Enter new contact name: ");
+        String name = scanner.nextLine();
+        System.out.println("Enter phone number: ");
+        String phone = scanner.nextLine();
+        Contact newContact = Contact.createContact(name, phone);
+        if(mobilePhone.addNewContact(newContact)) {
+            System.out.println("New contact added: name = " + name + ", phone = " +
+                    phone);
+        } else {
+            System.out.println("Cannot add, " + name + " already on file.");
+        }
+    }
+
+    //step 26
+    private static void updateContact() {
+        System.out.println("Enter existing contact name: ");
+        String name = scanner.nextLine();
+        Contact existingContactRecord = mobilePhone.queryContact(name);   //go back to mobilephone class, query
+        if (existingContactRecord==null) {
+            System.out.println("Contact not found.");
+            return;
+        }
+
+        System.out.println("Enter new contact name: ");
+        String newName = scanner.nextLine();
+        System.out.println("Enter new contact phone number: ");
+        String newNumber = scanner.nextLine();
+        Contact newContact = Contact.createContact(newName, newNumber);
+        if (mobilePhone.updateContact(existingContactRecord, newContact)) {
+            System.out.println("Successfully updated record");
+        } else {
+            System.out.println("Error updated record.");
+        }
+
+    }
+
+        //step 28 remove contact method
+        private static void removeContact() {
+            System.out.println("Enter existing contact name: ");
+            String name = scanner.nextLine();
+            Contact existingContactRecord = mobilePhone.queryContact(name);
+            if (existingContactRecord==null) {
+                System.out.println("Contact not found.");
+                return;
+            }
+
+            if(mobilePhone.removeContact(existingContactRecord)) {
+                System.out.println("Successfully deleted");
+            } else {
+                System.out.println("Error deleting contact");
+
+            }
 
         }
 
+        //step 29
+        private static void queryContact() {
+            System.out.println("Enter existing contact name: ");
+            String name = scanner.nextLine();
+            Contact existingContactRecord = mobilePhone.queryContact(name);
+            if (existingContactRecord==null) {
+                System.out.println("Contact not found.");
+                return;
+            }
 
-}
+            System.out.println("Name: " + existingContactRecord.getName() + "phone number is " +
+                    existingContactRecord.getPhoneNumber());
+        }
+
+        //step 30 now try running this!!!!
+
+
+        //step 21 method to start phone
+        private static void startPhone(){
+            System.out.println("Starting phone...");
+        }
+
+        //step 22 method for print actions
+        private static void printActions(){
+            System.out.println("\nAvailable actions:\npress");
+            System.out.println("0 - to shutdown\n" +
+                    "1 - to print contacts\n" +
+                    "2 - to add a new contact\n" +
+                    "3 - to update existing contact\n" +
+                    "4 - to remove an existing contact\n" +
+                    "5  - query if an existing contact exists\n" +
+                    "6 - to print a list of available actions.");
+
+            System.out.println("Choose your action: ");
+
+            }
+
+    }
